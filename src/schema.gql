@@ -1,0 +1,45 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Expenditure {
+  creator: User!
+  details: [Expenditure!]!
+  members: [User!]!
+  title: String!
+}
+
+type ExpenditureDetail {
+  amount: Int!
+  description: String!
+  tag: String!
+  tagColor: String!
+}
+
+input InputExpenditureDetail {
+  amount: Int!
+  description: String!
+  tag: String!
+  tagColor: String!
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+type Mutation {
+  createExpenditure(title: String!): Expenditure!
+  createExpenditureDetail(data: InputExpenditureDetail!, expenditureId: String!): ExpenditureDetail!
+  signIn(email: String!, password: String): String!
+  signUp(email: String!, password: String): String!
+}
+
+type Query {
+  u: User!
+  user: User!
+}
+
+type User {
+  email: String!
+}
